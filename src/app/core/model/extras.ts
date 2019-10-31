@@ -1,3 +1,3 @@
 export enum Extras{
-    MINIBAR, SECADOR, JACUZZI
+    MINIBAR, SECADOR, JACUZZI, AIRE
 }
