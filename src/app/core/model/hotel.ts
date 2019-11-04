@@ -5,8 +5,6 @@ export class Hotel {
         private _nombre:string;
         private _categoria: Categoria;
         private _tiposHabitacion: Habitacion[];
-
-
 	constructor(nombre: string, categoria: Categoria, tiposHabitacion: Habitacion[]) {
 		
 		this._nombre = nombre;
@@ -17,7 +15,6 @@ export class Hotel {
 	public get nombre(): string {
 		return this._nombre;
 	}
-
 	public get categoria(): Categoria {
 		return this._categoria;
 	}

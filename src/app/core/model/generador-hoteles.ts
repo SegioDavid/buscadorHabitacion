@@ -6,6 +6,7 @@ export class GeneradorHoteles {
    private _habitaciones =[]
 
     public getHoteles(): Hotel[] {
+
         this._arrayNombreHoteles.push(new Hotel("Hotel Parissi",Categoria["⭐⭐⭐⭐⭐"],this._habitaciones));
         this._arrayNombreHoteles.push(new Hotel("Hotel Realeza",Categoria["⭐⭐⭐⭐⭐"],this._habitaciones));
         this._arrayNombreHoteles.push(new Hotel("Hotel Mulan",Categoria["⭐⭐⭐⭐"],this._habitaciones));
@@ -16,6 +17,8 @@ export class GeneradorHoteles {
         this._arrayNombreHoteles.push(new Hotel("Hotel Sergio",Categoria["⭐⭐"],this._habitaciones));
         this._arrayNombreHoteles.push(new Hotel("Hotel Ashera",Categoria["⭐"],this._habitaciones));
         this._arrayNombreHoteles.push(new Hotel("Hotel Dominos",Categoria["⭐"],this._habitaciones));
+
+      
         return this._arrayNombreHoteles;
     }
 }
