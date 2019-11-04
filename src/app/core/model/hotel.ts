@@ -1,5 +1,5 @@
-import { Categoria } from './categoria';
-import { Habitacion } from './habitacion';
+import { Habitacion } from "./habitacion";
+import { Categoria } from "./categoria";
 
 export class Hotel {
         private nombre:string;
