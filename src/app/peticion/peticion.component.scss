@@ -1,31 +1,118 @@
-.combo{
-    width: 300px;
+.combo{    
+   
+    width: 390px;
     height: 40px;
     border: 1px solid #000;
     background: rgb(109, 197, 178); 
     color: white;
+    display: flex;
+  
 }
 .price-slider { 
     position: relative; 
-    width: 800px; 
-    margin-bottom: 2%;
-    height: 35px; 
-    text-align: center; 
+    width: 2000px; 
+    height: 50px; 
+   
 } 
+.contenedorGeneral{
+    margin-top: 20px;
+    border: 10px solid rgb(177, 226, 216); 
+    background: rgb(177, 226, 216); 
+    width: 1320px;height: 350px;
+  
+}
 .price-slider input { 
     pointer-events: none; 
-    position: absolute; 
-    left: 0; 
-    top: 15px; 
-    width: 12%; 
+    position: absolute;  
     outline: none; 
-    height: 18px; 
-    margin: 0; 
-    padding: 0; 
-    border-radius: 8px; 
-} 
+    height:10px; 
+}
+.slider {
+  -webkit-appearance: none;  
+  width: 500px;
+  height: 25px; 
+  background: rgb(224, 224, 224);
+  border: 1px solid #000;
+  outline: none; 
+  -webkit-transition: .2s; 
+  transition: opacity .2s;
+}
+
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none; 
+    width: 30px;
+    height: 30px; 
+    background: rgb(30, 42, 114);
+    border: 1px solid #000;
+    cursor: pointer;
+  }
+  
+  
 .price-slider input::-webkit-slider-thumb { 
     pointer-events: all; 
     position: relative; 
     z-index: 1; 
+}
+.check-complementos{
+    text-align: center;
+    width:15px;
+    height:15px;
+  
+}
+.contenedorPrecio{
+   
+    margin: 1rem;
+    padding: 1rem;
+ 
+    text-align: center;
+    border: 1px solid #000;
+    text-align: left;
+    width:520px;
+    height:130px;
+    background:rgb(109, 197, 178); 
+}
+.contenedorComplementos{
+    border: 1px solid #000;
+    text-align: center;
+    display: flex;
+    width: 300px;
+    height: 70px;
+    word-spacing: 15pt;    
+    background:rgb(109, 197, 178); 
+}
+.inputPrecio{
+    border: 0px solid #000;
+    text-align: center;
+    font-size: 25px;
+    background:rgb(109, 197, 178); 
+}
+.botonBuscarHotel{
+  
+    color:white;
+    background: rgb(30, 42, 114);
+    width: 1227px;height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contenedorbotonBucar{
+  
+    display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.titulo{
+  
+   
+    
+    background:black; 
+    border: 1px solid #000;
+    color:rgb(255, 255, 255);
+    display: flex;
+  align-items: center;
+  justify-content: center;
+   
+         
+      
+  
 }
