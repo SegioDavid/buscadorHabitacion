@@ -8,8 +8,8 @@ import { Injectable } from '@angular/core';
 export class PeticionControllerService {
 
   private hoteles: Hotel[];
-  precioMin: number;
-  precioMax: number;
+  precioMin: number = 10;
+  precioMax: number = 50;
   constructor() {
     this.hoteles = new GeneradorHoteles().getHoteles();
     console.log('hola');
