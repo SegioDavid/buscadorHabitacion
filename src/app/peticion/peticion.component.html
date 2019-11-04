@@ -1,4 +1,4 @@
-<h1 class="titulo">CARACTERISTICAS MOVILES</h1>
+<h1 class="titulo">CARACTERISTICAS HOTELES</h1>
 <div class="contenedorGeneral">
 <tr style="text-align: center">
   <th>Categoria</th>
@@ -51,10 +51,11 @@
   </div>
   <td>
       <div class="contenedorComplementos">
-      <p> <input class="check-complementos" type="checkbox" name="MINIBAR" [checked]="item.check == 'true'">MINIBAR</p>
-      <p><input class="check-complementos" type="checkbox" name="SECADOR" [checked]="item.check == 'true'">SECADOR</p>
-      <p><input class="check-complementos" type="checkbox" name="JACUZZI" [checked]="item.check == 'true'">JACUZZI</p>
-      <p><input class="check-complementos" type="checkbox" name="AIRE" [checked]="item.check == 'true'">AIRE</p>
+        
+      <p> <input [(ngModel)]="checkMinibar" class="check-complementos" type="checkbox">MINIBAR</p>
+      <p><input [(ngModel)]="checkSecador" class="check-complementos" type="checkbox">SECADOR</p>
+      <p><input [(ngModel)]="checkJacuzzi" class="check-complementos" type="checkbox">JACUZZI</p>
+      <p><input [(ngModel)]="checkAire" class="check-complementos" type="checkbox">AIRE</p>
   </div>
     </td>
 </div>
