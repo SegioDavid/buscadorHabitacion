@@ -18,6 +18,7 @@ export class PeticionComponent implements OnInit {
   private _arrayCategoria = [];
   private _arrayCama = [];
   private _arrayCapacidad = [];
+  private _arrayExtras = [];
   private precioMax: number = 100;
   private precioMin: number = 50;
   private seleccionCategoria: string = "";
@@ -34,6 +35,9 @@ export class PeticionComponent implements OnInit {
     for (let index = 0; index < Object.keys(Capacidad).length / 2; index++) {
       this._arrayCapacidad.push(Capacidad[index].toString());
     }
+    for (let index = 0; index < Object.keys(Extras).length / 2; index++) {
+      this._arrayExtras.push(Extras[index].toString());
+    }
   }
 
   ngOnInit() {
@@ -41,86 +45,37 @@ export class PeticionComponent implements OnInit {
 
   }
 
-  /**
-   * Getter $seleccionCategoria
-   * @return {string }
-   */
+ 
   public get $seleccionCategoria(): string {
     return this.seleccionCategoria;
   }
-
-  /**
-   * Getter $seleccionCama
-   * @return {string }
-   */
   public get $seleccionCama(): string {
     return this.seleccionCama;
   }
-
-  /**
-   * Getter $seleccionCapacidad
-   * @return {string }
-   */
   public get $seleccionCapacidad(): string {
     return this.seleccionCapacidad;
   }
-
-  /**
-   * Setter $seleccionCategoria
-   * @param {string } value
-   */
   public set $seleccionCategoria(value: string) {
     this.seleccionCategoria = value;
   }
-
-  /**
-   * Setter $seleccionCama
-   * @param {string } value
-   */
   public set $seleccionCama(value: string) {
     this.seleccionCama = value;
   }
-
-  /**
-   * Setter $seleccionCapacidad
-   * @param {string } value
-   */
   public set $seleccionCapacidad(value: string) {
     this.seleccionCapacidad = value;
   }
-
-  /**
-   * Getter $precioMax
-   * @return {number}
-   */
   public get $precioMax(): number {
     return this.precioMax;
   }
-
-  /**
-   * Getter $precioMin
-   * @return {number}
-   */
   public get $precioMin(): number {
     return this.precioMin;
   }
-
-  /**
-   * Setter $precioMax
-   * @param {number} value
-   */
   public set $precioMax(value: number) {
     this.precioMax = value;
   }
-
-  /**
-   * Setter $precioMin
-   * @param {number} value
-   */
   public set $precioMin(value: number) {
     this.precioMin = value;
   }
-
   public get arrayCategoria() {
     return this._arrayCategoria;
   }
@@ -129,6 +84,9 @@ export class PeticionComponent implements OnInit {
   }
   public get arrayCapacidad() {
     return this._arrayCapacidad;
+  }
+  public get arrayExtras() {
+    return this._arrayExtras;
   }
 
   public updatePriceLabels() {
