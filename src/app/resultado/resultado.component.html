@@ -1,16 +1,2 @@
 <h1>HOTELES ENCONTRADOS</h1>
-<table class="tabla2">
-
-    <br>
-    
-    <tr>
-     
-      <th> CATEGORIA </th>
-      <th> CAMAS </th>
-      <th> CAPACIDAD </th>
-     
-    </tr>
-
-     
-  </table>
-
+<h1 *ngFor="let nombre of resultadoService.$ensenar">{{nombre.nombre}}</h1>
