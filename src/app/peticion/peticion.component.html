@@ -1,9 +1,10 @@
-
-<h1>CARACTERISTICAS MOVILES</h1>
+<h1 class="titulo">CARACTERISTICAS MOVILES</h1>
+<div class="contenedorGeneral">
 <tr style="text-align: center">
   <th>Categoria</th>
   <th>Camas</th>
   <th>Capacidad</th>
+  
  
 </tr>
 <tr style="text-align: center">
@@ -15,34 +16,51 @@
     </select>
   </td>
 
-  <td> <select class="combo"name="cama" [(ngModel)]="seleccionCama">
-    <option value="">Selecciona</option>
-    <option *ngFor="let cama of arrayCama" value="{{arrayCama.indexOf(cama)}}"> {{cama}}
-    </option>
-  </select>
-</td>
-<td> <select class="combo" name="capacidad" [(ngModel)]="seleccionCapacidad">
-  <option value="">Selecciona</option>
-  <option *ngFor="let capacidad of arrayCapacidad" value="{{arrayCapacidad.indexOf(capacidad)}}"> {{capacidad}}
-  </option>
-</select>
-</td>
-<div *ngIf="precioMin<precioMax">
-    <p>Precio minimo <input [(ngModel)]=precioMin> €</p>
-    <p>Precio maximo <input [(ngModel)]=precioMax> €</p>
+  <td> <select class="combo" name="cama" [(ngModel)]="seleccionCama">
+      <option value="">Selecciona</option>
+      <option *ngFor="let cama of arrayCama" value="{{arrayCama.indexOf(cama)}}"> {{cama}}
+      </option>
+    </select>
+  </td>
+  <td> <select class="combo" name="capacidad" [(ngModel)]="seleccionCapacidad">
+      <option value="">Selecciona</option>
+      <option *ngFor="let capacidad of arrayCapacidad" value="{{arrayCapacidad.indexOf(capacidad)}}"> {{capacidad}}
+      </option>
+    </select>
+  </td>
+ 
+</tr>
+
+<div class="contenedorPrecio">
+    <h3>Precio máx.<input class="inputPrecio" [(ngModel)]=precioMin> </h3>
+    <h3>Precio mín.<input class="inputPrecio" [(ngModel)]=precioMax> </h3>
+  <div *ngIf="precioMin<precioMax">
+   
     <div class="price-slider">
-        <input [(ngModel)]="precioMin" min="0" max="1000" step="1" type="range">
-        <input [(ngModel)]="precioMax" min="0" max="1000" step="1" type="range">
+     <input [(ngModel)]="precioMin" min="0" max="1000" step="1" type="range" class="slider">
+      <input [(ngModel)]="precioMax" min="0" max="1000" step="1" type="range" class="slider">
     </div>
-</div>
-<div *ngIf="precioMin>=precioMax">
-    <p>Precio minimo <input [(ngModel)]=precioMax> €</p>
-    <p>Precio maximo <input [(ngModel)]=precioMin> €</p>
+  </div>
+  <div *ngIf="precioMin>=precioMax">
+  
     <div class="price-slider">
-        <input [(ngModel)]="precioMax" min="0" max="1000" step="1" type="range">
-        <input [(ngModel)]="precioMin" min="0" max="1000" step="1" type="range">
+        <input [(ngModel)]="precioMax" min="0" max="1000" step="1" type="range" class="slider">
+      <input [(ngModel)]="precioMin" min="0" max="1000" step="1" type="range" class="slider">
     </div>
 
+  </div>
+  <td>
+      <div class="contenedorComplementos">
+      <p> <input class="check-complementos" type="checkbox" name="MINIBAR" [checked]="item.check == 'true'">MINIBAR</p>
+      <p><input class="check-complementos" type="checkbox" name="SECADOR" [checked]="item.check == 'true'">SECADOR</p>
+      <p><input class="check-complementos" type="checkbox" name="JACUZZI" [checked]="item.check == 'true'">JACUZZI</p>
+      <p><input class="check-complementos" type="checkbox" name="AIRE" [checked]="item.check == 'true'">AIRE</p>
+  </div>
+    </td>
 </div>
-<button (click)="updatePriceLabels()">Pulsa</button> 
+</div>
+<br>
+<div class="contenedorbotonBucar">
 
+  <button class="botonBuscarHotel"(click)="updatePriceLabels()">BUSCAR HOTELES</button>
+</div>
