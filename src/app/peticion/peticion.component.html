@@ -1,4 +1,32 @@
-<p>peticion works!</p>
+
+<h1>CARACTERISTICAS MOVILES</h1>
+<tr style="text-align: center">
+  <th>Categoria</th>
+  <th>Camas</th>
+  <th>Capacidad</th>
+ 
+</tr>
+<tr style="text-align: center">
+
+  <td> <select class="combo" name="categoria" [(ngModel)]="seleccionCategoria">
+      <option value=""></option>
+      <option *ngFor="let categoria of arrayCategoria"> {{categoria}}
+      </option>
+    </select>
+  </td>
+
+  <td> <select class="combo"name="cama" [(ngModel)]="seleccionCama">
+    <option value=""></option>
+    <option *ngFor="let cama of arrayCama"> {{cama}}
+    </option>
+  </select>
+</td>
+<td> <select class="combo" name="capacidad" [(ngModel)]="seleccionCapacidad">
+  <option value=""></option>
+  <option *ngFor="let capacidad of arrayCapacidad"> {{capacidad}}
+  </option>
+</select>
+</td>
 <div *ngIf="this.peticionService.precioMin<this.peticionService.precioMax">
     <p>Precio minimo <input [(ngModel)]=this.peticionService.precioMin> €</p>
     <p>Precio maximo <input [(ngModel)]=this.peticionService.precioMax> €</p>
@@ -14,5 +42,7 @@
         <input [(ngModel)]="this.peticionService.precioMax" min="0" max="1000" step="1" type="range">
         <input [(ngModel)]="this.peticionService.precioMin" min="0" max="1000" step="1" type="range">
     </div>
+
 </div>
-<button (click)="this.peticionService.updatePriceLabels()">Pulsa</button>
+<button (click)="this.peticionService.updatePriceLabels()">Pulsa</button> 
+
