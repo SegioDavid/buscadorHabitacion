@@ -1,3 +1,4 @@
 export enum Extras{
-    'MINIBAR', 'SECADOR', 'JACUZZI', 'AIRE'
+
+    MINIBAR, SECADOR, JACUZZI, AIRE
 }
