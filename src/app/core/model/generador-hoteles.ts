@@ -33,15 +33,6 @@ export class GeneradorHoteles {
 
         return this._arrayNombreHoteles;
     }
-    public getRandom(min: number, max: number): number {
-        return Math.round(Math.random() * (max - min) + min);
-    }
-
-  /*  public obtenerCategoria(numeroEstrellas: number): Categoria {
-       
-        return Categoria[numeroEstrellas];
-
-    }*/
 
 }
 
