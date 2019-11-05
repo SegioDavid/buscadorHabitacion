@@ -90,11 +90,11 @@ export class PeticionComponent implements OnInit {
   }
 
   public updatePriceLabels() {
-    let extrame: Extras[] = [Extras.JACUZZI];
-    this.peticionService.$habitacionMin = new Habitacion(new TipoHabitacion(Capacidad[this.$seleccionCapacidad], Camas[this.$seleccionCama], new Complemento(extrame)), this.precioMin);
-    this.peticionService.$habitacionMax = new Habitacion(new TipoHabitacion(Capacidad[this.$seleccionCapacidad], Camas[this.$seleccionCama], new Complemento(extrame)), this.precioMax);
+   // let extrame: Extras[] = [Extras.JACUZZI];
+    //this.peticionService.$habitacionMin = new Habitacion(new TipoHabitacion(Capacidad[this.$seleccionCapacidad], Camas[this.$seleccionCama], new Complemento(extrame)), this.precioMin);
+    //this.peticionService.$habitacionMax = new Habitacion(new TipoHabitacion(Capacidad[this.$seleccionCapacidad], Camas[this.$seleccionCama], new Complemento(extrame)), this.precioMax);
     this.peticionService.$puntuacion = Categoria[this.seleccionCategoria];
-    this.peticionService.mostrar()
+    this.peticionService.mostrar();
   }
 
 }
