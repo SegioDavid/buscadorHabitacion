@@ -16,55 +16,59 @@ export class PeticionControllerService {
      private habitacionMax: Habitacion;
      private puntuacion: Categoria;
      private hoteles: Hotel[] = [];
-     private ensenar: Habitacion[] = [];
+     private hotelesEnsenar: Hotel[] = [];
+     private ensenarHabitacion: Habitacion[] = [];
      constructor() {
           this.hoteles = new GeneradorHoteles().getHoteles();
-          console.log(this.hoteles);
      }
 
      comprobar() {
-          this.$ensenar = [];
+          
+          this.$hotelesEnsenar = []
           this.comprobarCategoria();
-          return this.$ensenar
      }
 
      comprobarCategoria() {
           this.hoteles.forEach(element => {
+               this.$ensenarHabitacion = [];
                if (this.puntuacion === undefined) {
                     element.tiposHabitacion.forEach(habita => {
-                         this.comprobarPrecio(habita, element);
-
+                         this.comprobarPrecio(habita);
                     });
                } else if (this.puntuacion === element.categoria) {
                     element.tiposHabitacion.forEach(habita => {
-                         this.comprobarPrecio(habita, element);
+                         this.comprobarPrecio(habita);
                     });
                }
+               if(this.$ensenarHabitacion.length!=0){
+                    this.$hotelesEnsenar.push(new Hotel(element.nombre,element.categoria,this.$ensenarHabitacion));
+               }
+              
           });
      }
-     comprobarPrecio(habitacion: Habitacion, element) {
+     comprobarPrecio(habitacion: Habitacion) {
           if (this.habitacionMax.precio > habitacion.precio && this.$habitacionMin.precio < habitacion.precio) {
-               this.comprobarCama(habitacion, element);
+               this.comprobarCama(habitacion);
           }
      }
-     comprobarCama(habitacion: Habitacion, element) {
+     comprobarCama(habitacion: Habitacion) {
           if (this.habitacionMax.tipoHabitacion.camas === undefined) {
-               this.comprobarCapacidad(habitacion, element);
+               this.comprobarCapacidad(habitacion);
           } else if (this.habitacionMax.tipoHabitacion.camas === habitacion.tipoHabitacion.camas) {
-               this.comprobarCapacidad(habitacion, element);
+               this.comprobarCapacidad(habitacion);
           }
      }
-     comprobarCapacidad(habitacion: Habitacion, element) {
+     comprobarCapacidad(habitacion: Habitacion) {
 
           if (this.habitacionMax.tipoHabitacion.capacidad === undefined) {
-               this.comprobarExtras(habitacion, element);
+               this.comprobarExtras(habitacion);
           } else if (this.habitacionMax.tipoHabitacion.capacidad === habitacion.tipoHabitacion.capacidad) {
-               this.comprobarExtras(habitacion, element);
+               this.comprobarExtras(habitacion);
           }
      }
-     comprobarExtras(habitacion: Habitacion, element) {
+     comprobarExtras(habitacion: Habitacion) {
           if (this.habitacionMax.tipoHabitacion.complementos.nombre.length === 0) {
-               this.$ensenar.push(element);
+               this.$ensenarHabitacion.push(habitacion);
           } else {
                let arrayExtras = habitacion.tipoHabitacion.complementos.nombre;
                let arrayPeticion = this.habitacionMax.tipoHabitacion.complementos.nombre;
@@ -78,26 +82,43 @@ export class PeticionControllerService {
                }
 
                if (contador >= 1 && contador >= arrayPeticion.length) {
-                    this.$ensenar.push(element)
+                    this.$ensenarHabitacion.push(habitacion)
 
                }
           }
      }
 
+
+    /**
+     * Getter $hotelesEnsenar
+     * @return {Hotel[] }
+     */
+	public get $hotelesEnsenar(): Hotel[]  {
+		return this.hotelesEnsenar;
+	}
+
+    /**
+     * Setter $hotelesEnsenar
+     * @param {Hotel[] } value
+     */
+	public set $hotelesEnsenar(value: Hotel[] ) {
+		this.hotelesEnsenar = value;
+	}
+
      /**
-      * Getter $ensenar
+      * Getter $ensenarHabitacion
       * @return {Hotel[]}
       */
-     public get $ensenar(): Habitacion[] {
-          return this.ensenar;
+     public get $ensenarHabitacion(): Habitacion[] {
+          return this.ensenarHabitacion;
      }
 
      /**
-      * Setter $ensenar
+      * Setter $ensenarHabitacion
       * @param {Hotel[]} value
       */
-     public set $ensenar(value: Habitacion[]) {
-          this.ensenar = value;
+     public set $ensenarHabitacion(value: Habitacion[]) {
+          this.ensenarHabitacion = value;
      }
 
      /**
