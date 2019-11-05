@@ -10,10 +10,10 @@ import { Hotel } from './hotel';
 export class GeneradorHoteles {
     private _arrayNombreHoteles = [];
     private nombre=[Extras.AIRE]
-    private _habitacion1 = [new Habitacion(new TipoHabitacion(Capacidad.TRIPLE, Camas.KINGSIZE, new Complemento(this.nombre)), 100)];
-    private _habitacion2 = [new Habitacion(new TipoHabitacion(Capacidad.DOBLE, Camas.INDIVIDUAL,new Complemento([Extras.AIRE, Extras.MINIBAR, Extras.JACUZZI])), 300)];
-    private _habitacion3 = [new Habitacion(new TipoHabitacion(Capacidad.TRIPLE, Camas.KINGSIZE,new Complemento([Extras.AIRE, Extras.MINIBAR, Extras.JACUZZI])), 600)];
-    private _habitacion4 = [new Habitacion(new TipoHabitacion(Capacidad.SIMPLE, Camas.DOBLE, new Complemento([Extras.AIRE, Extras.MINIBAR, Extras.JACUZZI])), 900)];
+    private _habitacion1 = [new Habitacion(new TipoHabitacion(Capacidad.TRIPLE, Camas.KINGSIZE, new Complemento(this.nombre)), 100,"")];
+    private _habitacion2 = [new Habitacion(new TipoHabitacion(Capacidad.DOBLE, Camas.INDIVIDUAL,new Complemento([Extras.AIRE, Extras.MINIBAR, Extras.JACUZZI])), 300,"")];
+    private _habitacion3 = [new Habitacion(new TipoHabitacion(Capacidad.TRIPLE, Camas.KINGSIZE,new Complemento([Extras.AIRE, Extras.MINIBAR, Extras.JACUZZI])), 600,"")];
+    private _habitacion4 = [new Habitacion(new TipoHabitacion(Capacidad.SIMPLE, Camas.DOBLE, new Complemento([Extras.AIRE, Extras.MINIBAR, Extras.JACUZZI])), 900,"")];
 
     public getHoteles(): Hotel[] {
 

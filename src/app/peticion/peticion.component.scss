@@ -1,25 +1,35 @@
 .combo{    
    
-    width: 390px;
-    height: 40px;
+    width: 100%;
     border: 1px solid #000;
-    background: rgb(109, 197, 178); 
+    background: rgb(109, 189, 178); 
     color: white;
-    display: flex;
+    height: 5%;
   
 }
+.categoria{
+    width: 33%;
+    display: inline-block;
+    position: relative;
+}
+.cama{
+    width: 33%;
+    display: inline-block;   
+     position: relative;
+}
+.capacidad{
+    width: 34%;
+    display: inline-block;}
 .price-slider { 
     position: relative; 
-    width: 2000px; 
-    height: 50px; 
    
 } 
 .contenedorGeneral{
-    margin-top: 20px;
     border: 10px solid rgb(177, 226, 216); 
     background: rgb(177, 226, 216); 
-    width: 1320px;height: 350px;
-  
+    width: 25%;
+    display: inline-block;
+    height: 100%;
 }
 .price-slider input { 
     pointer-events: none; 
@@ -28,9 +38,8 @@
     height:10px; 
 }
 .slider {
+    width: 90%;
   -webkit-appearance: none;  
-  width: 500px;
-  height: 25px; 
   background: rgb(224, 224, 224);
   border: 1px solid #000;
   outline: none; 
@@ -60,59 +69,44 @@
   
 }
 .contenedorPrecio{
-   
-    margin: 1rem;
-    padding: 1rem;
- 
     text-align: center;
     border: 1px solid #000;
     text-align: left;
-    width:520px;
-    height:130px;
-    background:rgb(109, 197, 178); 
+    height: 10em;
+    width:100%;
+    margin-bottom: 15%;
+    background:rgb(109, 197, 178);
 }
 .contenedorComplementos{
     border: 1px solid #000;
-    text-align: center;
+    width: 100%;
     display: flex;
-    width: 300px;
-    height: 70px;
     word-spacing: 15pt;    
     background:rgb(109, 197, 178); 
 }
 .inputPrecio{
     border: 0px solid #000;
     text-align: center;
-    font-size: 25px;
+    font-size: 100%;
+    width: 50%;
     background:rgb(109, 197, 178); 
 }
 .botonBuscarHotel{
-  
     color:white;
     background: rgb(30, 42, 114);
-    width: 1227px;height: 48px;
+    width: 1227px;
+    height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .contenedorbotonBucar{
-  
     display: flex;
-  align-items: center;
-  justify-content: center;
+    align-items: center;
+    justify-content: center;
 }
-.titulo{
-  
-   
-    
-    background:black; 
-    border: 1px solid #000;
-    color:rgb(255, 255, 255);
-    display: flex;
-  align-items: center;
-  justify-content: center;
-   
-         
-      
-  
+
+.contenedorCombo{
+    width: 100%;
+    margin-bottom: 15%;
 }

@@ -113,8 +113,8 @@ export class PeticionComponent implements OnInit {
         extrame.push(this.arrayExtras[index]);
       }
     }
-    this.peticionService.$habitacionMin = new Habitacion(new TipoHabitacion(Capacidad[this.$seleccionCapacidad], Camas[this.$seleccionCama], new Complemento(extrame)), this.precioMin);
-    this.peticionService.$habitacionMax = new Habitacion(new TipoHabitacion(Capacidad[this.$seleccionCapacidad], Camas[this.$seleccionCama], new Complemento(extrame)), this.precioMax);
+    this.peticionService.$habitacionMin = new Habitacion(new TipoHabitacion(Capacidad[this.$seleccionCapacidad], Camas[this.$seleccionCama], new Complemento(extrame)), this.precioMin,"");
+    this.peticionService.$habitacionMax = new Habitacion(new TipoHabitacion(Capacidad[this.$seleccionCapacidad], Camas[this.$seleccionCama], new Complemento(extrame)), this.precioMax,"");
     this.peticionService.$puntuacion = Categoria[this.seleccionCategoria];
     this.peticionService.comprobar()
   }
