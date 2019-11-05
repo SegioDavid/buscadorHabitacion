@@ -1,4 +1,3 @@
-import { Hotel } from './../../../../../buscadorHabitacion/src/app/core/model/hotel';
 import { Extras } from './../core/model/extras';
 import { Complemento } from './../core/model/complemento';
 import { TipoHabitacion } from './../core/model/tipoHabitacion';

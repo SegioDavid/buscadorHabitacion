@@ -32,3 +32,5 @@ export class GeneradorHoteles {
         return this._arrayNombreHoteles;
     }
 }
+
+
