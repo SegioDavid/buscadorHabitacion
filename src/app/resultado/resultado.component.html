@@ -1,2 +1,11 @@
+<div class="generalResultados">
 <h1>HOTELES ENCONTRADOS</h1>
-<h1 *ngFor="let nombre of resultadoService.$ensenar">{{nombre.nombre}}</h1>
+<table>
+   <tr *ngFor="let hotel of resultadoService.$ensenar">{{hotel.nombre}}
+       <td *ngFor="let habitacion of hotel.tiposHabitacion">
+           <p>{{habitacion.precio}}</p>
+           <p>{{habitacion.tipoHabitacion.camas}}</p>
+       </td>
+   </tr> 
+</table>
+</div>
