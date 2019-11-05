@@ -26,7 +26,6 @@ export class PeticionControllerService {
           
           this.$hotelesEnsenar = []
           this.comprobarCategoria();
-          console.log(this.$hotelesEnsenar[0].tiposHabitacion)
      }
 
      comprobarCategoria() {
@@ -46,7 +45,6 @@ export class PeticionControllerService {
                }
               
           });
-          console.log(this.$hotelesEnsenar)
      }
      comprobarPrecio(habitacion: Habitacion) {
           if (this.habitacionMax.precio > habitacion.precio && this.$habitacionMin.precio < habitacion.precio) {
