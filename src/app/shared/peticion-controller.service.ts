@@ -71,8 +71,7 @@ export class PeticionControllerService {
                let contador = 0;
                for (let index = 0; index < arrayPeticion.length; index++) {
                     for (let indexDos = 0; indexDos < arrayExtras.length; indexDos++) {
-                         let nombreExtra = Extras[arrayExtras[indexDos]];
-                         if (nombreExtra === arrayPeticion[index].toString()){
+                         if (arrayExtras[indexDos] === arrayPeticion[index]){
                               contador++;
                          }
                     }
