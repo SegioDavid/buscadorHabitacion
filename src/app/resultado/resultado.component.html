@@ -1,11 +1,23 @@
 <div class="generalResultados">
-<h1>HOTELES ENCONTRADOS</h1>
-<table>
-   <tr *ngFor="let hotel of resultadoService.$ensenar">{{hotel.nombre}}
-       <td *ngFor="let habitacion of hotel.tiposHabitacion">
-           <p>{{habitacion.precio}}</p>
-           <p>{{habitacion.tipoHabitacion.camas}}</p>
-       </td>
-   </tr> 
-</table>
+    <h1>HOTELES ENCONTRADOS</h1>
+    <table *ngFor="let hotel of resultadoService.$ensenar">{{hotel.nombre}}
+        <tr>
+            <td>Imagen</td>
+            <td>Precio</td>
+            <td>Cama</td>
+            <td>Capacidad</td>
+            <td>Extras</td>
+        </tr>
+        <tr *ngFor="let habitacion of hotel.tiposHabitacion">
+            <td><img src="{{habitacion.imagen}}"></td>
+            <td>{{habitacion.precio}} €</td>
+            <td>{{_arrayCama[habitacion.tipoHabitacion.camas]}}</td>
+            <td>{{_arrayCapacidad[habitacion.tipoHabitacion.capacidad]}}</td>
+            <td>
+                <tr *ngFor="let extras of habitacion.tipoHabitacion.complementos.nombre" >
+                    <td >{{_arrayExtras[extras]}}</td>
+                </tr>
+            </td>
+        </tr>
+    </table>
 </div>
