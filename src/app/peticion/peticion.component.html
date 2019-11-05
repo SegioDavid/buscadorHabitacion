@@ -1,6 +1,7 @@
 <div class="contenedorGeneral">
   <div class="contenedorCombo">
     <div class="categoria">
+      <p>Categoria:</p>
       <select class="combo" name="categoria" [(ngModel)]="seleccionCategoria">
         <option value="" selected>Selecciona</option>
         <option *ngFor="let categoria of arrayCategoria" value="{{arrayCategoria.indexOf(categoria)}}"> {{categoria}}
@@ -8,6 +9,7 @@
       </select>
     </div>
     <div class="cama">
+      <p>Cama:</p>
       <select class="combo" name="cama" [(ngModel)]="seleccionCama">
         <option value="">Selecciona</option>
         <option *ngFor="let cama of arrayCama" value="{{arrayCama.indexOf(cama)}}"> {{cama}}
@@ -15,6 +17,7 @@
       </select>
     </div>
     <div class="capacidad">
+      <p>Capacidad:</p>
       <select class="combo" name="capacidad" [(ngModel)]="seleccionCapacidad">
         <option value="">Selecciona</option>
         <option *ngFor="let capacidad of arrayCapacidad" value="{{arrayCapacidad.indexOf(capacidad)}}"> {{capacidad}}
