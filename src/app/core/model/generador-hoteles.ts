@@ -85,6 +85,5 @@ export class GeneradorHoteles {
     }
 
 
-
 }
 
