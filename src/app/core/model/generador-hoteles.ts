@@ -25,7 +25,7 @@ export class GeneradorHoteles {
     }
     public generaraHabitacion(): Habitacion[] {
         let arrayHabitaciones = [];
-        let numeroAle=this.getRandom(1,1);
+        let numeroAle=this.getRandom(1,2);
         for (let i = 0; i < numeroAle; i++) {
             arrayHabitaciones.push(new Habitacion(new TipoHabitacion((this.obtenerCapacidad()), (this.obtenerCama()), new Complemento(this.obtenerExtras(this.getRandom(0, 4)))), this.getRandom(0, 1000), this._arrayImagenes[this.getRandom(0, this._arrayImagenes.length-1)]));
         }
@@ -45,7 +45,6 @@ export class GeneradorHoteles {
         let cama;
         let numeroCama = this.getRandom(0, 2);
         cama = Camas[numeroCama];
-        console.log(cama);
         return cama;
 
     }
