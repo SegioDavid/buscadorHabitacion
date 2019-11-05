@@ -22,7 +22,9 @@ export class PeticionControllerService {
           this.$ensenar = [];
           this.hoteles.forEach(element => {
                let categoria = Categoria[element.categoria];
+              
                if (categoria === this.puntuacion.toString()) {
+                    console.log(element.tiposHabitacion);
                     this.$ensenar.push(element);
                }
                });
