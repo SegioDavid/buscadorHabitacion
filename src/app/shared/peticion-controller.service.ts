@@ -29,12 +29,12 @@ export class PeticionControllerService {
 
      comprobarCategoria() {
           this.hoteles.forEach(element => {
-               let categoria = Categoria[element.categoria];
+
                if (this.puntuacion === undefined) {
                     element.tiposHabitacion.forEach(habita => {
                          this.comprobarPrecio(habita, element);
                     });
-               } else if (this.puntuacion.toString() === categoria) {
+               } else if (this.puntuacion === element.categoria) {
                     element.tiposHabitacion.forEach(habita => {
                          this.comprobarPrecio(habita, element);
                     });
@@ -47,19 +47,18 @@ export class PeticionControllerService {
           }
      }
      comprobarCama(habitacion: Habitacion, element) {
-          let cama = Camas[habitacion.tipoHabitacion.camas];
+
           if (this.habitacionMax.tipoHabitacion.camas === undefined) {
                this.comprobarCapacidad(habitacion, element);
-          } else if (this.habitacionMax.tipoHabitacion.camas.toString() === cama) {
+          } else if (this.habitacionMax.tipoHabitacion.camas === habitacion.tipoHabitacion.camas) {
                this.comprobarCapacidad(habitacion, element);
           }
      }
      comprobarCapacidad(habitacion: Habitacion, element) {
 
-          let capacidad = Capacidad[habitacion.tipoHabitacion.capacidad];
           if (this.habitacionMax.tipoHabitacion.capacidad === undefined) {
                this.comprobarExtras(habitacion, element);
-          } else if (this.habitacionMax.tipoHabitacion.capacidad.toString() === capacidad) {
+          } else if (this.habitacionMax.tipoHabitacion.capacidad === habitacion.tipoHabitacion.capacidad) {
                this.comprobarExtras(habitacion, element);
           }
      }
@@ -72,17 +71,15 @@ export class PeticionControllerService {
                let contador = 0;
                for (let index = 0; index < arrayPeticion.length; index++) {
                     for (let indexDos = 0; indexDos < arrayExtras.length; indexDos++) {
-                         let nombreExtra = Extras[arrayExtras[indexDos]];
-                         if (nombreExtra === arrayPeticion[index].toString()){
+                         if (arrayExtras[indexDos] === arrayPeticion[index]) {
                               contador++;
                          }
                     }
                }
-               console.log(contador)
-               console.log(arrayPeticion.length)
-               if (contador>=1 && contador >= arrayPeticion.length) {
+
+               if (contador >= 1 && contador >= arrayPeticion.length) {
                     this.$ensenar.push(element)
-                    console.log("esta dentro")
+
                }
           }
      }

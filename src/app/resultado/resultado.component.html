@@ -11,11 +11,11 @@
         <tr *ngFor="let habitacion of hotel.tiposHabitacion">
             <td><img src="{{habitacion.imagen}}"></td>
             <td>{{habitacion.precio}} €</td>
-            <td>{{_arrayCama[habitacion.tipoHabitacion.camas]}}</td>
-            <td>{{_arrayCapacidad[habitacion.tipoHabitacion.capacidad]}}</td>
+            <td>{{habitacion.tipoHabitacion.camas}}</td>
+            <td>{{habitacion.tipoHabitacion.capacidad}}</td>
             <td>
                 <tr *ngFor="let extras of habitacion.tipoHabitacion.complementos.nombre" >
-                    <td >{{_arrayExtras[extras]}}</td>
+                    <td >{{extras}}</td>
                 </tr>
             </td>
         </tr>
