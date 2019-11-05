@@ -10,7 +10,7 @@
   <tr style="text-align: center">
 
     <td> <select class="combo" name="categoria" [(ngModel)]="seleccionCategoria">
-        <option value="">Selecciona</option>
+        <option value="" selected>Selecciona</option>
         <option *ngFor="let categoria of arrayCategoria" value="{{arrayCategoria.indexOf(categoria)}}"> {{categoria}}
         </option>
       </select>
@@ -52,7 +52,7 @@
     <td>
       <div class="contenedorComplementos">
         <ng-template ngFor let-extras [ngForOf]="arrayExtras" let-i="index">
-          <p><input [(ngModel)]="extrasHtml[i]" value="{{arrayExtras[i]}}" class="check-complementos" type="checkbox">{{extras}}</p>
+          <p><input [(ngModel)]="extrasHtml[i]" class="check-complementos" type="checkbox">{{extras}}</p>
         </ng-template>
       </div>
     </td>

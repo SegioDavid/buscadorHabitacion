@@ -1,9 +1,12 @@
+import { Camas } from './../core/model/camas';
 import { element } from 'protractor';
 import { GeneradorHoteles } from './../core/model/generador-hoteles';
 import { Hotel } from './../core/model/hotel';
 import { Injectable } from '@angular/core';
 import { Habitacion } from '../core/model/habitacion';
 import { Categoria } from '../core/model/categoria';
+import { Capacidad } from '../core/model/capacidad';
+import { Extras } from '../core/model/extras';
 
 @Injectable({
      providedIn: 'root'
@@ -20,26 +23,67 @@ export class PeticionControllerService {
 
      comprobar() {
           this.$ensenar = [];
-          this.hoteles.forEach(element => {
-               const categoria = Categoria[element.categoria];
-               this.comprobarCategoria(categoria, element);
-          });
+          this.comprobarCategoria();
           return this.$ensenar
      }
 
-     validaciones() {
-
-     };
-     comprobarCategoria(categoria, element) {
-          if (categoria === this.puntuacion.toString()) {
-               element.tiposHabitacion.forEach(habita => {
-                    this.comprobarPrecio(habita);
-               });
+     comprobarCategoria() {
+          this.hoteles.forEach(element => {
+               let categoria = Categoria[element.categoria];
+               if (this.puntuacion === undefined) {
+                    element.tiposHabitacion.forEach(habita => {
+                         this.comprobarPrecio(habita, element);
+                    });
+               } else if (this.puntuacion.toString() === categoria) {
+                    element.tiposHabitacion.forEach(habita => {
+                         this.comprobarPrecio(habita, element);
+                    });
+               }
+          });
+     }
+     comprobarPrecio(habitacion: Habitacion, element) {
+          if (this.habitacionMax.precio > habitacion.precio && this.$habitacionMin.precio < habitacion.precio) {
+               this.comprobarCama(habitacion, element);
           }
      }
-     comprobarPrecio(habitacion) {
-          if (this.habitacionMax.precio > habitacion.precio && this.$habitacionMin.precio < habitacion.precio) {
-               this.$ensenar.push(habitacion);
+     comprobarCama(habitacion: Habitacion, element) {
+          let cama = Camas[habitacion.tipoHabitacion.camas];
+          if (this.habitacionMax.tipoHabitacion.camas === undefined) {
+               this.comprobarCapacidad(habitacion, element);
+          } else if (this.habitacionMax.tipoHabitacion.camas.toString() === cama) {
+               this.comprobarCapacidad(habitacion, element);
+          }
+     }
+     comprobarCapacidad(habitacion: Habitacion, element) {
+
+          let capacidad = Capacidad[habitacion.tipoHabitacion.capacidad];
+          if (this.habitacionMax.tipoHabitacion.capacidad === undefined) {
+               this.comprobarExtras(habitacion, element);
+          } else if (this.habitacionMax.tipoHabitacion.capacidad.toString() === capacidad) {
+               this.comprobarExtras(habitacion, element);
+          }
+     }
+     comprobarExtras(habitacion: Habitacion, element) {
+          if (this.habitacionMax.tipoHabitacion.complementos.nombre.length === 0) {
+               this.$ensenar.push(element);
+          } else {
+               let arrayExtras = habitacion.tipoHabitacion.complementos.nombre;
+               let arrayPeticion = this.habitacionMax.tipoHabitacion.complementos.nombre;
+               let contador = 0;
+               for (let index = 0; index < arrayPeticion.length; index++) {
+                    for (let indexDos = 0; indexDos < arrayExtras.length; indexDos++) {
+                         let nombreExtra = Extras[arrayExtras[indexDos]];
+                         if (nombreExtra === arrayPeticion[index].toString()){
+                              contador++;
+                         }
+                    }
+               }
+               console.log(contador)
+               console.log(arrayPeticion.length)
+               if (contador>=1 && contador >= arrayPeticion.length) {
+                    this.$ensenar.push(element)
+                    console.log("esta dentro")
+               }
           }
      }
 
@@ -63,7 +107,7 @@ export class PeticionControllerService {
       * Getter $puntuacion
       * @return {Puntuacion}
       */
-     public get $puntuacion(): Categoria {
+     public get $puntuacion() {
           return this.puntuacion;
      }
 

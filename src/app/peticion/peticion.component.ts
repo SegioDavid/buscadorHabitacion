@@ -1,3 +1,4 @@
+import { Hotel } from './../../../../../buscadorHabitacion/src/app/core/model/hotel';
 import { Extras } from './../core/model/extras';
 import { Complemento } from './../core/model/complemento';
 import { TipoHabitacion } from './../core/model/tipoHabitacion';
@@ -24,7 +25,7 @@ export class PeticionComponent implements OnInit {
   private seleccionCategoria: string = "";
   private seleccionCama: string = "";
   private seleccionCapacidad: string = "";
-  private extrasHtml=[];
+  private extrasHtml: boolean[] = [];
 
   constructor(public peticionService: PeticionControllerService) {
     for (let index = 0; index < Object.keys(Categoria).length / 2; index++) {
@@ -46,7 +47,23 @@ export class PeticionComponent implements OnInit {
 
   }
 
- 
+  /**
+   * Getter $extrasHtml
+   * @return {boolean[] }
+   */
+  public get $extrasHtml(): boolean[] {
+    return this.extrasHtml;
+  }
+
+  /**
+   * Setter $extrasHtml
+   * @param {boolean[] } value
+   */
+  public set $extrasHtml(value: boolean[]) {
+    this.extrasHtml = value;
+  }
+
+
   public get $seleccionCategoria(): string {
     return this.seleccionCategoria;
   }
@@ -93,11 +110,10 @@ export class PeticionComponent implements OnInit {
   public updatePriceLabels() {
     let extrame: Extras[] = [];
     for (let index = 0; index < this.extrasHtml.length; index++) {
-      if(this.extrasHtml[index]===true){
-        extrame.push(Extras[index]);
+      if (this.$extrasHtml[index] === true) {
+        extrame.push(this.arrayExtras[index]);
       }
     }
-    console.log(extrame)
     this.peticionService.$habitacionMin = new Habitacion(new TipoHabitacion(Capacidad[this.$seleccionCapacidad], Camas[this.$seleccionCama], new Complemento(extrame)), this.precioMin);
     this.peticionService.$habitacionMax = new Habitacion(new TipoHabitacion(Capacidad[this.$seleccionCapacidad], Camas[this.$seleccionCama], new Complemento(extrame)), this.precioMax);
     this.peticionService.$puntuacion = Categoria[this.seleccionCategoria];
