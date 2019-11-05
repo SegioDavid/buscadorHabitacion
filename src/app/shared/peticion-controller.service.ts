@@ -1,3 +1,4 @@
+import { element } from 'protractor';
 import { GeneradorHoteles } from './../core/model/generador-hoteles';
 import { Hotel } from './../core/model/hotel';
 import { Injectable } from '@angular/core';
@@ -12,28 +13,41 @@ export class PeticionControllerService {
      private habitacionMax: Habitacion;
      private puntuacion: Categoria;
      private hoteles: Hotel[] = [];
-     private ensenar: Hotel[] = [];
+     private ensenar: Habitacion[] = [];
      constructor() {
           this.hoteles = new GeneradorHoteles().getHoteles();
      }
 
-     mostrar() {
+     comprobar() {
           this.$ensenar = [];
           this.hoteles.forEach(element => {
-               let categoria = Categoria[element.categoria]
-               // tslint:disable-next-line: triple-equals
-               if (categoria === this.puntuacion.toString()) {
-                    this.$ensenar.push(element)
-               }
+               const categoria = Categoria[element.categoria];
+               this.comprobarCategoria(categoria, element);
           });
           return this.$ensenar
+     }
+
+     validaciones() {
+
+     };
+     comprobarCategoria(categoria, element) {
+          if (categoria === this.puntuacion.toString()) {
+               element.tiposHabitacion.forEach(habita => {
+                    this.comprobarPrecio(habita);
+               });
+          }
+     }
+     comprobarPrecio(habitacion) {
+          if (this.habitacionMax.precio > habitacion.precio && this.$habitacionMin.precio < habitacion.precio) {
+               this.$ensenar.push(habitacion);
+          }
      }
 
      /**
       * Getter $ensenar
       * @return {Hotel[]}
       */
-     public get $ensenar(): Hotel[] {
+     public get $ensenar(): Habitacion[] {
           return this.ensenar;
      }
 
@@ -41,7 +55,7 @@ export class PeticionControllerService {
       * Setter $ensenar
       * @param {Hotel[]} value
       */
-     public set $ensenar(value: Hotel[]) {
+     public set $ensenar(value: Habitacion[]) {
           this.ensenar = value;
      }
 
