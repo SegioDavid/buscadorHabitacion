@@ -15,9 +15,12 @@ export class GeneradorHoteles {
     private _habitacion3 = [new Habitacion(new TipoHabitacion(Capacidad.TRIPLE, Camas.KINGSIZE,new Complemento([Extras.AIRE, Extras.MINIBAR, Extras.JACUZZI])), 600,"")];
     private _habitacion4 = [new Habitacion(new TipoHabitacion(Capacidad.SIMPLE, Camas.DOBLE, new Complemento([Extras.AIRE, Extras.MINIBAR, Extras.JACUZZI])), 900,"")];
 
-    public getHoteles(): Hotel[] {
 
-        this._arrayNombreHoteles.push(new Hotel("Hotel Parissi", Categoria["⭐⭐⭐⭐⭐"], this._habitacion1));
+    
+
+    public getHoteles(): Hotel[] {
+        //console.log(this.obtenerCategoria(this.getRandom(0, 4)));
+        this._arrayNombreHoteles.push(new Hotel("Hotel Parissi", Categoria["⭐⭐"], this._habitacion1));
         this._arrayNombreHoteles.push(new Hotel("Hotel Realeza", Categoria["⭐⭐⭐⭐⭐"], this._habitacion1));
         this._arrayNombreHoteles.push(new Hotel("Hotel Mulan", Categoria["⭐⭐⭐⭐"], this._habitacion2));
         this._arrayNombreHoteles.push(new Hotel("Hotel Platinum", Categoria["⭐⭐⭐⭐"], this._habitacion2));
@@ -28,9 +31,8 @@ export class GeneradorHoteles {
         this._arrayNombreHoteles.push(new Hotel("Hotel Ashera", Categoria["⭐"], this._habitacion3));
         this._arrayNombreHoteles.push(new Hotel("Hotel Dominos", Categoria["⭐"], this._habitacion4));
 
-
         return this._arrayNombreHoteles;
     }
 
-    
 }
+
