@@ -71,13 +71,15 @@ export class PeticionControllerService {
                let contador = 0;
                for (let index = 0; index < arrayPeticion.length; index++) {
                     for (let indexDos = 0; indexDos < arrayExtras.length; indexDos++) {
-                         if (arrayExtras[indexDos] === arrayPeticion[index]){
+                         if (arrayExtras[indexDos] === arrayPeticion[index]) {
                               contador++;
                          }
                     }
                }
-               if (contador>=1 && contador >= arrayPeticion.length) {
+
+               if (contador >= 1 && contador >= arrayPeticion.length) {
                     this.$ensenar.push(element)
+
                }
           }
      }
