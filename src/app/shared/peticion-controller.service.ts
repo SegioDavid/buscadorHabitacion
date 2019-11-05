@@ -1,3 +1,4 @@
+import { Camas } from './../core/model/camas';
 import { GeneradorHoteles } from './../core/model/generador-hoteles';
 import { Hotel } from './../core/model/hotel';
 import { Injectable } from '@angular/core';
@@ -20,13 +21,12 @@ export class PeticionControllerService {
      mostrar() {
           this.$ensenar = [];
           this.hoteles.forEach(element => {
-               let categoria = Categoria[element.categoria]
-               // tslint:disable-next-line: triple-equals
+               let categoria = Categoria[element.categoria];
                if (categoria === this.puntuacion.toString()) {
-                    this.$ensenar.push(element)
+                    this.$ensenar.push(element);
                }
-          });
-          return this.$ensenar
+               });
+          return this.$ensenar;
      }
 
      /**
