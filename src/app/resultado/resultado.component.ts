@@ -1,3 +1,4 @@
+import { PeticionControllerService } from './../shared/peticion-controller.service';
 import { Component, OnInit } from '@angular/core';
 
 
@@ -8,12 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultadoComponent implements OnInit {
 
-  
+  constructor(public resultadoService: PeticionControllerService) {
    
-  constructor() {
-    
   }
-
   ngOnInit() {
   }
 
