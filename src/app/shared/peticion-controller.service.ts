@@ -19,6 +19,7 @@ export class PeticionControllerService {
      private ensenar: Habitacion[] = [];
      constructor() {
           this.hoteles = new GeneradorHoteles().getHoteles();
+          console.log(this.hoteles);
      }
 
      comprobar() {
@@ -29,10 +30,10 @@ export class PeticionControllerService {
 
      comprobarCategoria() {
           this.hoteles.forEach(element => {
-
                if (this.puntuacion === undefined) {
                     element.tiposHabitacion.forEach(habita => {
                          this.comprobarPrecio(habita, element);
+
                     });
                } else if (this.puntuacion === element.categoria) {
                     element.tiposHabitacion.forEach(habita => {
@@ -47,7 +48,6 @@ export class PeticionControllerService {
           }
      }
      comprobarCama(habitacion: Habitacion, element) {
-
           if (this.habitacionMax.tipoHabitacion.camas === undefined) {
                this.comprobarCapacidad(habitacion, element);
           } else if (this.habitacionMax.tipoHabitacion.camas === habitacion.tipoHabitacion.camas) {
@@ -104,7 +104,7 @@ export class PeticionControllerService {
       * Getter $puntuacion
       * @return {Puntuacion}
       */
-     public get $puntuacion() {
+     public get $puntuacion():Categoria {
           return this.puntuacion;
      }
 
