@@ -1,21 +1,21 @@
 <div class="generalResultados">
     <h1>HOTELES ENCONTRADOS</h1>
-    <table *ngFor="let hotel of resultadoService.$hotelesEnsenar">{{hotel.nombre}}
+    <table *ngFor="let hotel of resultadoService.$hotelesEnsenar">
         <tr>
-            <td>Imagen</td>
-            <td>Precio</td>
-            <td>Cama</td>
-            <td>Capacidad</td>
-            <td>Extras</td>
+            <td><p>{{hotel.nombre}}</p><p>{{hotel.categoria}}</p></td>
+            <td><p>Precio</p></td>
+            <td><p>Cama</p></td>
+            <td><p>Capacidad</p></td>
+            <td><p>Extras</p></td>
         </tr>
         <tr *ngFor="let habitacion of hotel.tiposHabitacion">
             <td><img src="{{habitacion.imagen}}"></td>
-            <td>{{habitacion.precio}} €</td>
-            <td>{{habitacion.tipoHabitacion.camas}}</td>
-            <td>{{habitacion.tipoHabitacion.capacidad}}</td>
+            <td><p>{{habitacion.precio}} €</p></td>
+            <td><p>{{habitacion.tipoHabitacion.camas}}</p></td>
+            <td><p>{{habitacion.tipoHabitacion.capacidad}}</p></td>
             <td>
                 <tr *ngFor="let extras of habitacion.tipoHabitacion.complementos.nombre" >
-                    <td >{{extras}}</td>
+                    <td ><p>{{extras}}</p></td>
                 </tr>
             </td>
         </tr>

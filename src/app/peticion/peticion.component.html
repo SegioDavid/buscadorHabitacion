@@ -26,8 +26,8 @@
     </div>
   </div>
   <div class="contenedorPrecio">
-    <h3>Precio máx.<input class="inputPrecio" [(ngModel)]=precioMin>€ </h3>
-    <h3>Precio mín.<input class="inputPrecio" [(ngModel)]=precioMax>€ </h3>
+    <h3>Precio mín.<input class="inputPrecio" [(ngModel)]=precioMin>€ </h3>
+    <h3>Precio máx.<input class="inputPrecio" [(ngModel)]=precioMax>€ </h3>
     <div *ngIf="precioMin<precioMax">
       <div class="price-slider">
         <input [(ngModel)]="precioMin" min="0" max="1000" step="1" type="range" class="slider">
@@ -46,6 +46,8 @@
       <p><input [(ngModel)]="extrasHtml[i]" class="check-complementos" type="checkbox">{{extras}}</p>
     </ng-template>
   </div>
+  <br>
+ 
   <div class="contenedorbotonBucar">
     <button class="botonBuscarHotel" (click)="updatePriceLabels()">BUSCAR HOTELES</button>
   </div>
